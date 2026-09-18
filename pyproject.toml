@@ -1,0 +1,58 @@
+[project]
+name = "sergent-workspace"
+version = "0.1.0"
+description = "Sergent Python reference implementation: non-package uv workspace root, not a published package"
+requires-python = ">=3.11"
+
+[dependency-groups]
+dev = [
+    "sergent-py==0.1.0",
+    "pytest>=9.1.1",
+    "pyright>=1.1.414",
+    "ruff>=0.16.7",
+    "httpx2>=2.13.0",
+    "typing-extensions>=4.16.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = [
+    "sergent-py",
+    "sergent-py-core",
+    "sergent-py-runtime",
+    "sergent-py-providers",
+]
+
+[tool.uv.sources]
+sergent-py-core = { workspace = true }
+sergent-py-runtime = { workspace = true }
+sergent-py = { workspace = true }
+sergent-py-providers = { workspace = true }
+
+[tool.ruff]
+line-length = 100
+include = ["*.py", "*.pyi", "*.ipynb", "**/pyproject.toml"]
+extend-exclude = ["docs/archived"]
+
+[tool.ruff.lint]
+# Keep the established rule set explicit across Ruff's default-policy changes.
+select = ["E4", "E7", "E9", "F"]
+extend-select = [
+  "PLC0415", # import outside top level
+  "PLR0913", # too many arguments
+  "PLR0915", # too many statements
+]
+
+[tool.ruff.lint.pylint]
+max-args = 5
+max-statements = 100
+
+[tool.pytest.ini_options]
+testpaths = [
+    "sergent-py-core/tests",
+    "sergent-py-runtime/tests",
+    "sergent-py-providers/tests",
+    "sergent-py/tests",
+]

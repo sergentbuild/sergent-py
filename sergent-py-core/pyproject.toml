@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling>=1.32.0,<2", "hatch-fancy-pypi-readme>=25.1.0,<26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sergent-py-core"
+version = "0.1.0"
+description = "Sergent Python reference implementation: specification values and the ModelClient, SceneActions, and SergentRecipe interfaces"
+dynamic = ["readme"]
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Sergent Pty Ltd", email = "info@sergent.build" }]
+requires-python = ">=3.11"
+keywords = [
+    "sergent",
+    "agentic",
+    "agent",
+    "llm",
+    "specification",
+    "interfaces",
+    "pydantic",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Framework :: Pydantic :: 2",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "pydantic>=2.13.5,<3",
+    "typing-extensions>=4.16.0,<5",
+]
+
+[project.urls]
+Homepage = "https://github.com/sergentbuild/sergent-py"
+Documentation = "https://github.com/sergentbuild/sergent-py/blob/v0.1.0/docs/KNOWLEDGE.md"
+Repository = "https://github.com/sergentbuild/sergent-py"
+Issues = "https://github.com/sergentbuild/sergent-py/issues"
+
+[tool.hatch.metadata.hooks.fancy-pypi-readme]
+content-type = "text/markdown"
+fragments = [{ path = "README.md" }]
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+pattern = '(\]\()\.\./'
+replacement = '\1https://github.com/sergentbuild/sergent-py/blob/v$HFPR_VERSION/'
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+pattern = '(\]\()docs/'
+replacement = '\1https://github.com/sergentbuild/sergent-py/blob/v$HFPR_VERSION/$HFPR_PACKAGE_NAME/docs/'
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sergent_py_core"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/sergent_py_core", "README.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

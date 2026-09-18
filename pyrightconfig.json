@@ -1,0 +1,15 @@
+{
+  "include": [
+    "sergent-py-core",
+    "sergent-py-runtime",
+    "sergent-py-providers",
+    "sergent-py",
+  ],
+  "exclude": [
+    "docs",
+    ".tmp",
+    "**/archived"
+  ],
+  "typeCheckingMode": "standard",
+  "enableTypeIgnoreComments": false
+}

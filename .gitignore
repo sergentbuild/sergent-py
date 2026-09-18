@@ -1,0 +1,21 @@
+AGENTS.md
+.codex/
+.tmp/
+.venv/
+.env
+*.ignored
+*.ignore
+
+# knowledge curation infra
+**/synopsis.xml
+
+# workflow artifacts
+HANDOFF*.md
+
+# python
+.ruff_cache/
+.pytest_cache/
+__pycache__/
+*.egg-info/
+build/
+dist/
