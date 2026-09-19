@@ -214,6 +214,5 @@ Python design that carries them.
 - Understanding or diagnosing a Run outcome: read the runtime knowledge file with the
   [Run Record specification](../sergent/docs/run-record-spec.md) beside it.
 - Adding or fixing a provider adapter: read the providers knowledge file and its catalog.
-- Implementing Sergent in another language: read the
-  [implementer notes](../sergent/docs/for-implementers.md), then the four knowledge files from
-  core upward.
+- The [example repository](https://github.com/sergentbuild/sergent-py-examples) that provides 
+  real world example apps built with this frame. Each example is carefully chosen to represent a unique class of technical challenges.

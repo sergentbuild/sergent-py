@@ -20,6 +20,10 @@ dependencies are Pydantic v2 for typed values and boundary validation, the stand
 library for non-blocking Runs, and the official provider SDKs (OpenAI, Anthropic, Google GenAI)
 for model calls. Local Ollama models are reached through the OpenAI SDK.
 
+Readers are encouraged to review the sergent-py-examples repository:
+<https://github.com/sergentbuild/sergent-py-examples>, a companion repository containing
+the example apps built with this framework.
+
 ## Components
 
 The implementation is a uv-managed workspace of four packages. Dependencies point down only:
